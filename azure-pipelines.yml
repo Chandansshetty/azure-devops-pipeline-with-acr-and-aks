@@ -20,15 +20,13 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'AZserviceconnection'
+    azureSubscriptionEndpoint: 'toazportal'
     azureResourceGroup: 'First-set'
     kubernetesCluster: 'First-AKS'
     namespace: 'default'
     command: 'apply'
-    useConfigurationFile: true
-    configuration: '01_kubernetes_aks'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'AZserviceconnection'
+    azureSubscriptionEndpointForSecrets: 'toazportal'
     azureContainerRegistry: 'firstcontainer.azurecr.io'
     forceUpdate: false
