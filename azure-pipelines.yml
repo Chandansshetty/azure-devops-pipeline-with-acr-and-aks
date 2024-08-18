@@ -20,12 +20,15 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Free Trial(02ad5631-aebf-4a13-affe-9d6189acdece)'
+    azureSubscriptionEndpoint: 'AZserviceconnection'
     azureResourceGroup: 'First-set'
     kubernetesCluster: 'First-AKS'
+    namespace: 'default'
     command: 'apply'
+    useConfigurationFile: true
+    configuration: '01_kubernetes_aks'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Free Trial(02ad5631-aebf-4a13-affe-9d6189acdece)'
+    azureSubscriptionEndpointForSecrets: 'AZserviceconnection'
     azureContainerRegistry: 'firstcontainer.azurecr.io'
     forceUpdate: false
